@@ -14,7 +14,7 @@ export class PaisesService {
   constructor(private httpClient: HttpClient) {}
 
   public obtenerTodosLosPaises(): Observable<Pais[]>{
-    return this.httpClient.get<Pais[]>("https:restcountries.com/v3.1/all");
+    return this.httpClient.get<Pais[]>("https://restcountries.com/v3.1/all");
   }
 
 
