@@ -1,0 +1,34 @@
+
+<div class="card flex justify-content-center">
+  <p-dialog header="Adivina la bandera" [(visible)]="mostrarDialogo" [style]="{width: '50vw'}" [maximizable]="true">
+    <p>El juego consiste en adivinar el país al que pertence la bandera mostrada.</p>
+    <p>¿Quieres jugar?</p>
+    <div class="text-center">
+      <p-button (click)="empezar()" label="Empezar" icon="pi pi-flag"></p-button>
+    </div>
+  </p-dialog>
+</div>
+
+<p-card class="bg-orange-500" *ngIf="pregunta" [hidden]="mostrarDialogo" header="Adivina la bandera"  [style]="{ width: '40rem'}">
+  <ng-template pTemplate="header">
+    <div class="grid">
+      <p class="col pl-3">Puntos <span class="{{puntos > 0 ? 'bg-green-400' : 'bg-red-400'}} p-badge text-xl">{{puntos}}</span></p>
+      <p class="col pr-3 text-right">Tiempo <span class="{{tiempo > 0 ? 'bg-green-400' : 'bg-red-400'}} p-badge text-xl">{{tiempo + "s"}}</span></p>
+    </div>
+    <img alt="Card" class="sombra" [src]="pregunta.bandera" style="width: 40rem; height: 20rem; " />
+  </ng-template>
+  <div class="grid">
+    <div *ngFor="let nombre of pregunta.desordenadas" class="col-6">
+      <p-button class="" (click)="comprobarAcierto(nombre)" [label]="nombre"></p-button>
+    </div>
+  </div>
+</p-card>
+
+<div *ngIf="tiempo === 0 " class="card flex justify-content-center">
+  <p-dialog header="Fin del juego" [visible]="mostrarReinicio" [style]="{width: '50vw'}" [modal]="true">
+    <p>Se acabó el tiempo</p>
+    <div class="text-center">
+      <p-button (click)="reiniciarJuego()" label="Reiniciar" icon="pi pi-replay"></p-button>
+    </div>
+  </p-dialog>
+</div>

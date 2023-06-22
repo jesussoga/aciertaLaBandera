@@ -1,0 +1,9 @@
+.button {
+  background-color: var(--blue-100);
+  width: 3rem;
+  height: 2rem;
+}
+
+.sombra {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
