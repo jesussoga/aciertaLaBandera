@@ -9,13 +9,13 @@
   </p-dialog>
 </div>
 
-<p-card class="bg-orange-500" *ngIf="pregunta" [hidden]="mostrarDialogo" header="Adivina la bandera"  [style]="{ width: '40rem'}">
+<p-card class="bg-orange-500" *ngIf="pregunta" [hidden]="mostrarDialogo" header="Adivina la bandera"  [style]="{ width: '25rem'}">
   <ng-template pTemplate="header">
     <div class="grid">
       <p class="col pl-3">Puntos <span class="{{puntos > 0 ? 'bg-green-400' : 'bg-red-400'}} p-badge text-xl">{{puntos}}</span></p>
       <p class="col pr-3 text-right">Tiempo <span class="{{tiempo > 0 ? 'bg-green-400' : 'bg-red-400'}} p-badge text-xl">{{tiempo + "s"}}</span></p>
     </div>
-    <img alt="Card" class="sombra" [src]="pregunta.bandera" style="width: 40rem; height: 20rem; " />
+    <img alt="Card" class="sombra" [src]="pregunta.bandera" style="width: 25rem; height: 20rem; " />
   </ng-template>
   <div class="grid">
     <div *ngFor="let nombre of pregunta.desordenadas" class="col-6">
